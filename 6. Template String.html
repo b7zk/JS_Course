@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li>Primavera</li>
+    <li>Verano</li>
+    <li>Otoño</li>
+    <li>Invierno</li>
+  </ul>
+  <script>
+    let nombre = "Osmar";
+    let apellido = "Díaz";
+
+    let saludo = "Hola mi nombre es: ";
+
+    //interpolacion:
+    //Template String ` ( alt + } )
+    let saludo2 =
+      `Hola mi nombre es ${nombre} ${apellido}.`
+    console.log(saludo2);
+
+    //generar codigo HTML dinamicamente
+    let ul2 = `<ul>
+    <li>Primavera</li>
+    <li>Verano</li>
+    <li>Otoño</li>
+    <li>Invierno</li>
+  </ul>`
+    console.log(ul2)
+
+
+  </script>
+</body>
+
+</html>

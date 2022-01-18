@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //varible global
+    var hola = "Hola mundo";
+    //no utilizar var (variable global) por la reasignación de valores.
+    //variable de bloque
+    let hello = "Hello world";
+    //impresion en consola
+    console.log(hola);
+    console.log(hello);
+    console.log(window);
+    console.log(window.hola);
+    console.log(window.hello);
+
+
+
+    /* Ejemplo de problema definición con var
+    console.log("***************************** var****************");
+    var musica = "Rock";
+    console.log("Variable Musica antes del Bloque:", musica);
+
+    {
+      var musica = "Pop";
+      console.log("Variable musica dentro del Bloque:", musica);
+    }
+
+    console.log("Variable musica dentro del Bloque:", musica);
+*/
+
+    console.log("***************************** let****************");
+    let musica2 = "Rock";
+    console.log("Variable Musica antes del Bloque:", musica2);
+
+    {
+      let musica2 = "Pop";
+      console.log("Variable musica dentro del Bloque:", musica2);
+    }
+
+    console.log("Variable musica dentro del Bloque:", musica2);
+  </script>
+</body>
+
+</html>

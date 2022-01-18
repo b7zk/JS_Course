@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 6
+    let b = 7
+    let c = 8
+
+    //una funcion tiene su propio contenido y es ejecutable en cualquier momento.
+
+    //creacion de la funcion
+    function unaFuncion() {
+      console.log(a);
+      console.log(b);
+      console.log(c);
+    }
+
+    //funcion que retorna valor
+    function devuelveValor() {
+      return "La funcion retorno un texto"
+
+    }
+
+    //funcion que recibe valores
+    function recibeValor(a, b) {
+      let c = a + b;
+      console.log(`Resultado: ${c}`)
+    }
+
+    //ejecucion de la funcion
+    /*
+    unaFuncion();
+    let v = devuelveValor()
+    console.log(v);
+    console.log(recibeValor(a, b));*/
+
+    //funcion declarada
+    declarada();
+
+    function declarada() {
+      console.log("Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, quis ipsum a similique blanditiis rem doloremque harum maxime architecto, itaque magnam dicta beatae porro quisquam sit placeat quos! Nihil, dignissimos?");
+    }
+
+    console.log(declarada1);
+    //Funcion anonima
+    const declarada1 = function () {
+      console.log("Funcion expresada, que se ha asignado como valor a una variable, si invocamos esta funcion antes de su definicion JS nos dirá: ")
+    }
+
+
+  </script>
+</body>
+
+</html>
