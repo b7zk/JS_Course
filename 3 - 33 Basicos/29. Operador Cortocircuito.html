@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Cortocircuito OR
+    // CUANDO EL VALOR DE LA IZQUIERDA EN LA EXPRESION SIEMPRE PUEDA VALIDAR A TRUE, SE CARGARA POR DEFECTO
+    //Si uso un valor que tiende a falso, tiende a la derecha (NULL, undefined, 0, etc)
+    function saludar(nombre) {
+      nombre = nombre || "Desconocido"
+      console.log(`Hola ${nombre}`);
+
+    }
+
+    //SON CONTRARIOS OR Y AND
+
+
+    //Cortocircuito AND / CUANDO EL VALOR DE LA IZQUIERDA EN LA EXPRESION SIEMPRE PIUEDA VALIDAR A FALSE, SE CARGARA POR DEFECTO
+    //Si uso un valor que tiende a verdadero tiende a la derecha (valores definidos, 1, etc)
+    function saludar2(nombre) {
+      nombre = nombre && "Desconocido"
+      console.log(`Hola ${nombre}`);
+
+    }
+    saludar("Osmar");
+    saludar();
+
+
+    saludar2("Osmar");
+    saludar2();
+    console.log();
+  </script>
+</body>
+
+</html>

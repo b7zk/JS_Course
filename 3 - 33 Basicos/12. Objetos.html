@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const b = {};
+
+    const c = new Object();
+    console.log(c);
+    //en objetos son atributos y en funciones se llama metodos
+    const osmar = {
+      nombre: "Osmar",
+      apellido: "Diaz",
+      edad: 25,
+      pasatiempos: ["correr", "componer"],
+      soltero: false,
+      contacto: {
+        email: "akuro@info.com",
+        twitter: "@akuromx",
+        movil: "236277232"
+      },
+      saludar: function () {
+        console.log("hola c:")
+
+      },
+      decirMiNombre: function () {
+        console.log(`Hola me llamo ${this.nombre} ${this.apellido} y tengo ${this.edad} años y me puedes seguir como ${this.twitter} en twitter.`);
+
+      }
+    }
+    console.log(osmar["nombre"]);
+    //acceder al atributo 
+    console.log(osmar.pasatiempos[1]);
+    console.log(osmar.decirMiNombre);
+    //acceder a la funcion
+    osmar.decirMiNombre();
+
+    //crea un arreglo de las llaves del objeto
+    console.log(Object.keys(osmar));
+    //crea un arreglo con los valores del objeto
+    console.log(Object.values(osmar));
+    //verifica si existe una propiedad con el nombre
+    console.log(osmar.hasOwnProperty("nombre"));
+  </script>
+</body>
+
+</html>

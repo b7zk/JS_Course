@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+    class Animal {
+      constructor(nombre, genero) {
+        this.nombre = nombre;
+        this.genero = genero;
+      }
+
+      //Metodos
+      sonar() {
+        console.log("Sonido nuevo");
+      }
+      saludar() {
+        console.log(`Hola me llamo ${this.nombre}`);
+      }
+    }
+
+    class Perro extends Animal {
+      constructor(nombre, genero, raza) {
+        super(nombre, genero);
+        this.raza = null;
+      }
+      sonar() {
+        console.log("Nuevo nuevo sonido")
+      }
+
+      ladrar() {
+        console.log("guau guauuu guauuu guauuu")
+      }
+
+      //Setter
+      setRaza(raza) {
+        this.raza = raza;
+      }
+      //Getter
+      getRaza() {
+        return this.raza;
+      }
+
+      //Metodo estatico | Es aquel que se puede ejecutar sin instanciar la clase
+      static queEres() {
+        console.log("Los perros somos los mejoress")
+
+      }
+    }
+    const mimi = new Animal("Mimi", "Hembra");
+    const scooby = new Perro("Scooby", "Macho", "Grande");
+
+    scooby.saludar();
+    console.log(scooby.getRaza())
+    scooby.setRaza("Gran Danes"); 0
+    scooby.saludar();
+    console.log("New Raza: " + scooby.getRaza())
+    console.log(scooby)
+    //invocacion de metodo estatico
+    Perro.queEres();
+
+  </script>
+</body>
+
+</html>

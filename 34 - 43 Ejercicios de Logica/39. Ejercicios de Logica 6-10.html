@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Ejercicio 15
+    const conver = (num, nom) => {
+      if (typeof num !== "number" || typeof nom !== "number") {
+        return "Por favor entra sólo numeros"
+
+      } else {
+        if (nom === 2) {
+          return `${num} base: ${nom} = ${parseInt(num, nom)} base 10`;
+        } else if (nom === 10) {
+          return `${num} base: ${nom} = ${parseInt(num.toString(2))} base 2`;
+        } else {
+          return "Agrega una base correcta"
+        }
+      }
+    }
+
+    console.log(conver(3, 10))
+
+    //Ejercicio 16
+
+    const desc = (precio, descuento) => {
+      if (typeof precio !== "number" || typeof descuento !== "number") {
+        return "Por favor sólo ingresa numeros"
+      } else {
+        return `Tu articulo ha bajado de $${precio} a ${precio - (precio / 100) * descuento} gracias al ${descuento}% de descuento`
+      }
+
+    }
+
+    console.log(desc(1000, 50));
+    console.clear();
+    //Ejercicio 17
+    const añosT = (fecha = undefined) => {
+      if (!fecha instanceof Date) {
+        return console.error("No es un formato valido")
+      } else {
+        let twD = new Date().getTime() - new Date(fecha).getTime();
+        aniosMS = 1000 * 60 * 60 * 24 * 365;
+        aniosH = Math.floor(twD / aniosMS);
+
+        console.log(aniosH)
+      }
+    }
+    añosT(1984, 4, 23);
+  </script>
+</body>
+
+</html>

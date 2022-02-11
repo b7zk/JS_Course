@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Las clases no reciben parametros, sólo por medio del constructor
+    class Animal {
+
+      //Constructor
+      constructor(nombre, genero) {
+        this.nombre = nombre;
+        this.genero = genero;
+      }
+
+      //Metodos
+      sonar() {
+        console.log("Sonido nuevo");
+      }
+
+      saludar() {
+        console.log(`Hola me llamo ${this.nombre}`);
+      }
+    }
+
+    class Perro extends Animal {
+      constructor(nombre, genero, raza) {
+        //Con el metodo super() se manda a llamar el constructor de la clase padre
+        super(nombre, genero);
+        this.raza = raza;
+      }
+
+      sonar() {
+        console.log("Nuevo nuevo sonido")
+      }
+
+      ladrar() {
+        console.log("guau guauuu guauuu guauuu")
+      }
+    }
+
+    //Creacion del objeto
+    const mimi = new Animal("Mimi", "Hembra");
+    const scooby = new Perro("Scooby", "Macho", "Grande");
+
+    console.log(mimi)
+    console.log(scooby)
+    mimi.saludar();
+    mimi.sonar();
+    scooby.saludar();
+    scooby.sonar();
+    scooby.ladrar();
+
+  </script>
+</body>
+
+</html>

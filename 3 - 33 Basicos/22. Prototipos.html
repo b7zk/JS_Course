@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /*
+Clases: Modelos a seguir
+
+Atributos: caracteristicas o propiedad del objeto; es decir, variables dentro de un objeto.
+
+Metodos: Acciones que un objeto puede relizar (funciones dentro de un objeto)
+
+    */
+
+    /*  const animal = {
+       nombre: "Baku",
+       sonar() {
+         console.log("sonido");
+       }
+     }
+     const animal2 = {
+       nombre: "Lola",
+       sonar() {
+         console.log("sonido");
+       }
+     }
+     console.log(animal);
+     console.log(animal2); */
+
+    //Funcion constructora.
+    function Animal(nombre, genero) {
+      //Atributos
+      this.nombre = nombre;
+      this.genero = genero;
+
+      //La creacion de una funcion dentro del constructor debe llevar el this.
+
+      this.sonar = function () {
+        console.log("Sonido");
+      }
+    }
+
+    //Mejora por metodos (los metodos van fuera)
+    function Animal2(nombre, genero) {
+      this.nombre = nombre;
+      this.genero = genero;
+
+      /* this.sonar = function () {
+        console.log("Sonido");
+      } */
+
+    }
+    Animal2.prototype.sonar = function () {
+      console.log("Sonido nuevo");
+    }
+    Animal2.prototype.saludar = function () {
+      console.log(`Hola me llamo ${this.nombre}`);
+    }
+
+
+    const snoopy = new Animal2("Snoopy", "M");
+    const kei = new Animal2("Key", "M");
+
+    console.log(snoopy)
+    console.log(kei)
+
+    snoopy.sonar();
+    kei.saludar();
+
+  </script>
+</body>
+
+</html>

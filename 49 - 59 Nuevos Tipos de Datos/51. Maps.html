@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //MAP permite son objetos  que nos permiten almacenar conjunto de valores asociados. Basicamente un objeto primitivo
+
+    //coleccion de datos
+
+    //creacion de Map
+    const mapa = new Map();
+
+    //Agregar valores
+    mapa.set("nombre", "Osmar")
+    mapa.set("apellido", "Diaz")
+    mapa.set("edad", 26)
+
+    console.log(mapa);
+
+    //saber tamaño:
+    console.log(mapa.size);
+
+    //saber si existe la llave
+    console.log(mapa.has("nombre")); //devuelve true si lo haya
+
+    //obtener valores
+    console.log(mapa.get("nombre"));
+
+    //redefinir valor
+    mapa.set("nombre", "Osmar Diaz")
+    console.log(mapa.get("nombre"));
+
+    //eliminar llave
+    mapa.delete("apellido")
+    console.log(mapa);
+
+    //diferencia, en un objeto primitivo las llaves son Strings, BUT en un mapa no es necesariamente asi
+    mapa.set(19, "diecinueve")
+    mapa.set(false, "falso")
+    mapa.set({}, {})
+    console.log(mapa);
+    //recorrer un Mapa
+    for (let [key, value] of mapa) {
+      console.log(`LLave: ${key}, Valor ${value}`);
+    }
+
+    //un uso de la mapa: guardar una coleccion de datos que esten relacionados
+    //por ejemplo un catalogo
+    //son valores iterables convertibles a arrays.
+
+    //otra manera de inicializar valores para mapa
+
+    const mapa2 = new Map([
+      ["nombre", "Baku"],
+      ["edad", 7],
+      ["animal", "perro"],
+      [null, "nulo"]
+    ])
+
+    console.log(mapa2);
+
+    //a diferencia de los sets, aqui tenemos un juego de clave/valor.
+
+    //destructuracion para guardar llaves y valores en diferentes arreglos.
+
+    //Spread operator: ...
+    const llavesM2 = [...mapa2.keys()]
+    const valoresM2 = [...mapa2.values()]
+
+    console.log(llavesM2);
+    console.log(valoresM2);
+
+
+
+
+  </script>
+</body>
+
+</html>

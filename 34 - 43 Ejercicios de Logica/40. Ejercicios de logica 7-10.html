@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Ejercicio 18
+
+    const removeAccents = (str) => {
+      return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+    const contador = texto => {
+      const textoArray = removeAccents(texto.toLowerCase()).split("");
+      let contV = 0;
+      let contC = 0;
+      let contL = 0;
+      for (let i = 0; i < textoArray.length; i++) {
+        if (/[a-z]/.test(textoArray[i])) {
+          contL++;
+          if (/[aeiou]/.test(textoArray[i])) {
+            contV++;
+          } else {
+            contC++;
+          }
+        }
+      }
+
+      console.log(`De un total de: ${contL} letras, hemos obtenido ${contV} vocales y ${contC} consonantes`);
+
+    }
+
+    contador("Holá mundo");
+
+    //Ejercicio 19
+
+    const validarName = (nombre = "") => {
+      if (!nombre) return console.warn("Debes ingresar un nombre")
+
+      if (typeof nombre !== "string") return console.error("El dato ingresado no es una cadena de texto");
+
+      // \s incluye espacios 
+      let expReg = /^[A-Za-zÑñÁÉÍÓÚáéíóúüÜ!?\s]+$/g.test(nombre);
+
+      return (expReg) ? console.info(`El nombre ${nombre} es valido`) : console.warn("El nombre no es valido")
+
+    }
+    validarName("Osmar");
+
+    //Ejercicio 20
+
+    const validarEmail = (mail = "") => {
+      if (!mail) return console.warn("Debes ingresar un email")
+
+      if (typeof mail !== "string") return console.error("El dato ingresado no es una cadena de texto");
+
+      // codigo para comprobar email
+      let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(mail);
+
+      return (expReg) ? console.info(`El e-mail ${mail} es valido`) : console.warn("El e-mail no es valido")
+
+    }
+    validarEmail("jonmircha@gmail.com");
+
+  </script>
+</body>
+
+</html>

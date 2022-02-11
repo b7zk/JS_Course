@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const a = [];
+    const b = [1, true, "Hola", ["A", "B", "C", [1, 2, 3]]];
+    console.log(b.length);
+    console.log(a);
+    console.log(b[2]);
+    console.log(b[3][2]);
+    console.log(b[3][3][0]);
+
+    //nuevo metodo.
+    const c = Array.of("X", "Y", "Z", 9, 8, 7);
+    console.log(c);
+
+    //asignar el mismo valor a todas las posiciones.
+    const d = Array(100).fill(false);
+    console.log(d);
+
+    //constructor (obsoleto)
+    const e = new Array(1, 2, 3, true, false);
+    console.log(e);
+
+    const colores = ["Rojo", "Verde", "Azul"];
+    console.log(colores);
+    //agrega elemento al final
+    colores.push("Negro");
+    console.log(colores);
+    //Elimina el ultimo elemento
+    colores.pop();
+    console.log(colores);
+
+    //recorrer valor por parametro
+    colores.forEach(function (el, index) {
+      console.log(`<li id="${index}">${el}</li>`)
+    });
+  </script>
+</body>
+
+</html>

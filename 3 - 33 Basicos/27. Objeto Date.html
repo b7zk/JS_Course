@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    console.log(Date());
+
+    let fecha = new Date();
+    console.log(fecha);
+    console.log(fecha.getDate()); // dia 3
+    console.log(fecha.getDay()); // dia jueves 0-7
+    console.log(fecha.getMonth());
+    console.log(fecha.getYear() + 1900);
+    console.log(fecha.getFullYear());
+    console.log(fecha.getHours());
+    console.log(fecha.getMinutes());
+    console.log(fecha.getSeconds());
+    console.log(fecha.getMilliseconds());
+
+    //fechas humanamente entendibles
+    console.log(fecha.toString());
+    console.log(fecha.toDateString());
+
+    //fecha resumida formato: dd//mm//aaaa
+    console.log(fecha.toLocaleString());
+    console.log(fecha.toLocaleDateString());
+
+    //fecha por GMT 0
+    console.log(fecha.getTimezoneOffset());
+    console.log(fecha.getUTCDate());
+    console.log(fecha.getUTCHours());
+
+    //fecha time stamp
+    //utilizado cuando guardas registros en BS.
+    console.log(Date.now())
+
+    //Libreria para manejo de tiempos: momentjs.com
+    console.clear();
+    //encontrar mi cumpleaños
+    let cumpleOsmar = new Date(1995, 9, 28);
+    console.log(cumpleOsmar)
+
+
+  </script>
+</body>
+
+</html>

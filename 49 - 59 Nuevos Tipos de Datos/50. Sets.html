@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //set es similar a un array pero de datos unicos.
+
+    //crear Set
+    const set = new Set([1, 2, 3, 3, 4, 5, true, false, false, {}, {}, "hola", "hOla"]);
+
+    console.log(set);
+    //saber tamaño size
+    console.log(set.size);
+    console.log("************** set 2");
+    //agregar valores
+    const set2 = new Set();
+    for (let i = 0; i < 10; i++) {
+      set2.add(i);
+
+    }
+    //ciclo forof
+    console.log("***************SET");
+    for (let i of set) {
+      console.log(i);
+    }
+    console.log(set2);
+
+    //ciclo foreach
+    console.log("***************SET 2");
+    set2.forEach(i => console.log(i))
+
+    //Acceder a elemento
+    console.log("Elemento de set");
+    //convertir set a arreglo
+    let arr = Array.from(set);
+    console.log(arr[2]);
+
+    //Eliminar valores:
+    set.delete("hOla")
+    console.log(set);
+
+    //comprobar si el valor existe dentro del Set
+
+    console.log(set.has(19));
+    set2.clear();
+    console.log(set2);
+
+    //Si tu creas una lista de generos unicos
+
+    let aux1 = [1, 2, 3, 4, 5, 6, 7, 8, 5, 5, 5, 5, 5]
+    const set3 = new Set(aux1)
+    console.log("Elemento set 3:");
+    console.log(set3);
+    console.log(aux1);
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //preferible usar funciones expresadas
+
+    //Ejercicio 5
+    const invertir = texto => texto.split("").reverse().join("");
+
+    console.log(invertir("Hola tu, cómo te llamas?"))
+
+    //ejercicio 6
+    console.clear();
+
+    const cuentaPalabras = (texto, word) => {
+
+      let i = 0, cont = 0;
+
+      while (i !== -1) {
+        i = texto.indexOf(word, i);
+        if (i !== -1) {
+          i++;
+          cont++;
+
+        }
+      }
+      return console.info(`La palabra ${word} se encontro ${cont} veces`)
+
+
+    }
+
+    let texto = "Hola mundo adios mundo "
+
+    cuentaPalabras(texto, "mundo")
+    console.clear()
+
+    //Ejercicio 7
+    const palindrome = (texto) => {
+      const textoRev = texto.split("").reverse().join("").replace(/ /g, "");
+
+      return texto.replace(/ /g, "").toLowerCase()
+        === textoRev.trim().toLowerCase() ? "Es palindromo" : "No es palindromo";
+
+    }
+
+    console.log(palindrome("Yo hago yoga hoy"))
+    console.clear();
+
+    const eliminador = (texto, patron) => {
+      const dal = texto.replace(new RegExp(patron, "ig"), "")
+
+      console.log(dal);
+    }
+    eliminador("xyz1, xyz2, xyz3", "xyz")
+
+
+
+  </script>
+</body>
+
+</html>

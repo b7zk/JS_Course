@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Ejercicio 9
+    const aleat = () => console.log(Math.round(Math.random() * 100 + 500))
+    aleat();
+    console.clear()
+
+    //Ejercicio 10
+    const capicua = (num = 0) => {
+      if (typeof num !== "number") {
+        return "No ingresaste un numero"
+      } else {
+        if (Math.sign(num) !== -1) {
+          let aux1 = num.toString().split("").reverse().join("");
+          if (aux1 === num.toString()) {
+            return "El numero es capicua"
+          } else {
+            return "El numero NO es capicua"
+          }
+        } else {
+          return `El numero debe ser positivo `
+        }
+      }
+    }
+
+    console.log(capicua("e"))
+    console.clear();
+
+    //Ejercicio 11
+
+    const fact = num => {
+      let f = 1;
+      for (let i = 1; i <= num; i++) {
+        f = f * i;
+      }
+
+      console.log(`Factorial de ${num} es: ${f}`)
+
+    }
+    fact(8);
+
+
+
+
+
+  </script>
+</body>
+
+</html>

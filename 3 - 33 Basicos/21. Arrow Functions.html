@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //nueva forma de definir funciones anonimas expresadas.
+
+    //funcion expresada
+    const saludo = function () {
+      console.log("Hola");
+    }
+    //funcion declarada
+    function saludar() {
+      console.log("Hola");
+    }
+
+    saludo();
+    saludar();
+
+    //arrow function: 
+    //Se borra la palabra function y después de los parentesís se agrega una flecha =>
+    const saludo1 = () =>
+      console.log("Hola, soy una arrow function de una linea");
+
+    //arrow function 2 lineas
+    const saludo2 = () => {
+      console.log("*********Hola, soy una arrow function de una linea");
+      console.log("perdon, dos lineas")
+    }
+    //si  la arrow function recibe UN SOLO PARAMETRO puedes omitir los parentesis de la variable
+    const saludo3 = nombre =>
+      console.log(`Hola ${nombre}`);
+
+    //poseen un return implicito:
+    const sumar = function (a, b) {
+      return a + b;
+    }
+    const sumar2 = (a, b) => a + b;
+
+    //Si tienen varias lineas se respetan los {}
+    const functVariasLineas = () => {
+      console.log("Uno")
+      console.log("dos")
+      console.log("tres")
+    }
+
+    functVariasLineas();
+    const num = [1, 2, 3, 4, 5];
+
+    //metodo forEach en arreglos
+    num.forEach(function (el, index) {
+      console.log(`El elemento ${el} esta en la posición ${index}`);
+    })
+
+    //arrow function de la function de arriba
+    num.forEach((el, index) =>
+      console.log(`${el} esta en la posición ${index}`));
+    saludo1();
+    saludo2();
+    saludo3("Osmar");
+    console.log(sumar2(12, 3))
+    console.log("**********************************")
+    //devuelve window
+    /*function Perro() {
+      console.log(this);
+    }
+    Perro();*/
+
+    //devuelve objeto
+    const perro = {
+      nombre: "Baku",
+      ladrar: function () {
+        console.log(this);
+      }
+    }
+    perro.ladrar();
+
+    //devuelve window nuevamente
+    const perro1 = {
+      nombre: "Baku",
+      ladrar: () => { console.log(this); }
+    }
+    perro1.ladrar();
+
+
+
+    // Es decir, una funcion normal forma parte del metodo ladrar, this=el objeto
+
+
+    //En una arrow function, salta el metodo y hereda el contexto del objeto padre.
+
+    //En resumen, no es buena idea crear una arrow function en un objeto literal.
+
+
+
+
+
+  </script>
+</body>
+
+</html>

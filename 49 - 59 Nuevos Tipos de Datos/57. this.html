@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    console.log(this);
+    console.log(this == window);
+
+    this.nombre = "Contexto Global"
+
+    function imprimir() {
+      console.log(this.nombre);
+    }
+    imprimir();
+
+    //this imprime el nombre definido dentro del objeto
+    //sin el, imprimira el nombre definido globalmente
+    const obj = {
+      nombre: "Contexto Objeto",
+      imprimir: function () {
+        console.log(this.nombre);
+      }
+    }
+    obj.imprimir();
+
+    const ob2 = {
+      nombre: "Contexto Objeto 2",
+      //al llamar la funcion del global, this pasa a ser parte de este objeto, por ende se imprime Objeto 2
+      imprimir: imprimir
+    }
+    ob2.imprimir();
+
+    const obj3 = {
+      nombre: "Contexto Objeto 3",
+      //la arrow function mantiene un enlace con el scope global.
+      //hereda el contexto donde fue creada
+      imprimir: () => {
+        console.log(this.nombre);
+      }
+    }
+    obj3.imprimir();
+
+    function Persona(nombre) {
+      this.nombre = nombre;
+      //una funcion constructora crea su propio scope
+      /* return console.log(this.nombre); */
+
+      //Retorna el contexto global porque crea un nuevo scope, y ya que no tiene una propiedad nombre, lee el this del contexto global
+
+      /* return function () {
+        return console.log("Function anonima: " + nombre)
+      } */
+
+      //Arrow Function | hereda el contexto donde fue creada
+      return () => console.log("Function anonima: " + nombre)
+      /*METODO VIEJO:
+      //referencia al this global
+      const that=this
+      that.nombre=nombre;
+*/    }
+
+    let jon = new Persona("jon")
+    jon();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let nombre = "kenai",
+      edad = 7;
+
+    const perro = {
+      nombre: nombre,
+      edad: edad,
+      ladrar: function () {
+        console.log("guauguaaauuuu");
+      }
+    }
+
+    perro.ladrar();
+
+    //nuevo tipo de escritura sobre objetos
+    const dog = {
+      nombre,
+      edad,
+      raza: "poodle", //añade nueva caracteristica
+      ladrar() {
+        console.log("wauwauwau")
+      }
+    }
+    console.log(dog.nombre);
+    dog.ladrar();
+
+  </script>
+</body>
+
+</html>

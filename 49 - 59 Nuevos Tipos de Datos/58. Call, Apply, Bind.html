@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Si se necesita conservar la referencia de algun scope y utilizarlo en alguna invocacion
+
+    //call y apply son parecidos
+
+    //crear variable
+
+    this.lugar = "Contexto Global";
+
+    function saludar(saludo, quien) {
+      console.log(`${saludo} ${quien} desde el ${this.lugar}`);
+    }
+
+    saludar("Hola", "Baku");
+
+    const obj = {
+      lugar: "Contexto Objeto"
+    }
+
+    //call utiliza comas para ingresar datos
+    //(objeto, datos)
+    saludar.call(obj, "Hola", "Osmar");
+    //null regresa al objeto global
+    saludar.call(null, "Hola", "Osmar");
+
+    //apply utiliza un arreglo para ingresar parametros
+    saludar.apply(obj, ["Adios", "Osmar Díaz"]);
+    //null regresa al objeto global
+    saludar.apply(null, ["Adios", "Osmar Díaz"]);
+
+    const persona = {
+      //el objeto es un this.
+      //si hay un arrow function en la funcion devuelve undefined porque no existe la variable en el contexto global
+      nombre: "Osmar",
+      saludar: function () {
+        console.log(`Hola ${this.nombre}`)
+      }
+    }
+    persona.saludar();
+
+    this.nombre = "Window"
+    const person2 = {
+      //hola undefined
+      /* saludar: persona.saludar */
+
+      //enlazar contexto con persona
+
+      saludar: persona.saludar.bind(this)
+      //Enlaza al contexto global, la variable
+      /* saludar: persona.saludar.bind(this) */
+    }
+    console.log("******");
+    person2.saludar();
+  </script>
+</body>
+
+</html>

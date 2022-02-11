@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Son una secuencia de caracteres que forma un patrón de busqueda, principalmente utilizada en la busqueda de patrones de candenas de caracteres
+    //puedes validar que tenga parametros validos, o comprobar que tipo de tarjeta (MC ó visa), para validar RFC, etc
+
+    let cadena = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio, esse doloribus. Natus iste, quidem aliquid esse iusto quo ut adipisci asperiores eaque 9 fugit officiis rem accusamloremus molestias aperiam inventore sequi.";
+    //primer parametro a buscar, segundo es bandera
+    let expReg = new RegExp("lorem", "ig")
+    //let expReg2 = /[0-7]/id;
+    let expReg2 = /lorem{1,}/ig;
+    //g busca todas, i ignora mayusculas/minusculas
+
+    console.log(expReg.test(cadena))
+    console.log(expReg.exec(cadena))
+    console.clear();
+    console.log(expReg2.test(cadena))
+    console.log(expReg2.exec(cadena))
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modulos en JS</title>
+  <!--Sólo invocar el JS en el header cuando el desarrollador lo solicite-->
+
+</head>
+
+<body>
+  <h1>Modulos en JavaScript</h1>
+
+  <!--Si no, los archivos JS deben estar invocados al final de la etiqueta body-->
+  <!-- Para importar correctamente los modules es importante agregar type="module" en el script-->
+  <script src="js/modulos.js" type="module"></script>
+  <!--Esta es una versión que se invocaría en caso de no soportar los modulos (RETROCOMPATIBILIDAD)-->
+  <script src="js/no-modulos.js" nomodule></script>
+</body>
+
+</html>

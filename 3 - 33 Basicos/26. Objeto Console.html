@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    console.error("Esto es un error");
+    console.warn("Esto es un warning")
+    console.info("HOLA INFORMACIÓN")
+    let nombre = "Osmar",
+      apellido = "Díaz",
+      edad = 26;
+
+    console.log(nombre, apellido, edad)
+    console.log(`Hola mi nombre es ${nombre} ${apellido} y tengo ${edad} años`);
+
+    //Uso de comodines como en C (printf)
+    console.log(`Hola mi nombre es %s %s y tengo %d años`, nombre, apellido, edad)
+
+    console.clear(); // se limpia la consola
+
+    console.log(window);
+    console.log(document);
+    //Utilizar DIR para desentripar metodos y atributos
+    console.dir(window);
+    console.dir(document);
+    console.clear();
+
+    console.group("Los cursos de Jon Mircha en YT");
+    console.log("Cursos de JS")
+    console.log("Cursos de Node JS")
+    console.log("paws")
+    console.groupEnd();
+
+    //muestra en consola toda la información del console en una tabla | sort es para ordenar
+    console.table(Object.entries(console).sort())
+
+    //crear dos arreglos
+
+    const numeros = [1, 2, 3, 4, 5];
+    const vocales = ["a", "e", "i", "o", "u"];
+
+    console.table(numeros);
+    console.table(vocales);
+
+    const perro = {
+      nombre: "Baku",
+      raza: "Border Collie",
+      color: "cafe"
+    }
+
+    console.table(perro);
+    console.clear();
+
+    //usar time para saber cuanto tiempo tarda un bloque de codigo en ejecutarse.
+    console.time(`Cuanto tiempo tarda mi código`);
+    const arreglo = Array(1000000);
+
+    for (let i = 0; i < arreglo.length; i++) {
+      arreglo[i] = i;
+    }
+    console.timeEnd(`Cuanto tiempo tarda mi código`);
+
+    console.clear();
+
+    //Evalua cuantas veces se ejecuta o cuantas conexiones realiza para llegar a la solicitud
+    for (let i = 0; i <= 100; i++) {
+      console.count("Codigo for");
+      console.log(i);
+    }
+    //PRUEBAS CON ASSERT
+    //se ejecuta cuando la prueba falla
+    console.clear();
+    let x = 4;
+    let y = 2;
+
+    pruebaXY = "Se espera que X sea menor que Y";
+
+    console.assert(x < y, { x, y, pruebaXY });
+
+
+  </script>
+</body>
+
+</html>

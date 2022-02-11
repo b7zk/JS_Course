@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    try {
+      console.log("Aqui va el codigo a evaluar");
+      noExiste;
+      console.log("Al encontrar el error detiene la ejecución del bloque de codigo")
+
+    } catch (error) {
+      console.log("captura error " + error);
+    } finally {
+      console.log("Se ejecuta siempre al final del try/catch")
+    }
+
+    try {
+      //let numero = 10;
+      let numero = "Y";
+      if (isNaN(numero)) {
+        throw new Error("No es un numero")
+      }
+      console.log(numero * numero);
+    } catch (error) {
+      console.log(`Se produjo el error: ${error}`)
+    }
+  </script>
+</body>
+
+</html>

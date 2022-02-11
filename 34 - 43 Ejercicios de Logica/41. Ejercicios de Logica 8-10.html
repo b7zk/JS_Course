@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //ejercicio 21
+    const powArray = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return "Debes introducir un arreglo";
+
+      arregloPow = []
+
+      for (i = 0; i < arreglo.length; i++) {
+        arregloPow[i] = Math.pow(arreglo[i], 2);
+      }
+
+      if (arreglo.length === 0 || typeof arreglo[0] !== "number") {
+        return "El arreglo esta vacío"
+      } else {
+        return arregloPow;
+      }
+
+    }
+
+    //version Mircha
+    const powArray2 = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return "Debes introducir un arreglo";
+
+
+      for (let num of arreglo) {
+        if (typeof num !== "number") {
+
+          return console.log("Necesitas ingresar sólo numeros")
+        }
+        const newArr = arreglo.map(n => Math.pow(n, 2));
+
+        return newArr;
+
+      }
+    }
+
+    console.log(powArray2([1, 2, 3, 4, 5]))
+
+    //ejercicio 22
+    const lahArray = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+      let mayor = 0;
+      let posmayor = 0;
+      let posmenor = 0;
+      let menor = 9999999999;
+
+      for (i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] > mayor) {
+          mayor = arreglo[i];
+          posmayor = i;
+        }
+        if (arreglo[i] < menor) {
+          menor = arreglo[i];
+          posmenor = i;
+        }
+
+      }
+
+      if (arreglo.length === 0) {
+        return console.warn("El arreglo esta vacío")
+      } else {
+        return console.log(`Del arreglo ${arreglo}, el numero mayor es: ${mayor} encontrado en la posicion ${posmayor}, mientras que el numero menor es: ${menor} encontrado en la posición ${posmenor} `)
+      }
+    }
+
+    //Version Mircha
+    const lahArray2 = (arr = undefined) => {
+
+      if (!arr) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arr)) return "Debes introducir un arreglo";
+
+
+      for (let num of arr) {
+        if (typeof num !== "number") {
+          let max = Math.max(arr);
+          return console.log("Necesitas ingresar sólo numeros")
+        }
+        return console.info(`Arreglo Original: ${arr} Mayor: ${Math.max(...arr)}\nMinimo: ${Math.min(...arr)}`);
+
+
+      }
+    }
+
+    lahArray2([1, 4, 5, 99, -66])
+
+    //Ejercicio 23
+
+    const separador = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+      let arrPar = [];
+      let arrImpar = [];
+
+      for (i = 0; i < arreglo.length; i++) {
+        if (arreglo[i] % 2 == 0) {
+          arrPar.push(arreglo[i])
+        } else {
+          arrImpar.push(arreglo[i])
+        }
+      }
+
+      return console.log(`Pares: ${arrPar} \n Impares: ${arrImpar}`);
+
+    }
+
+    //version Mircha:
+
+    const separador2 = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+      for (let num of arreglo) {
+        if (typeof num !== "number") {
+          let max = Math.max(arr);
+          return console.log("Necesitas ingresar sólo numeros")
+        }
+        return console.info({
+          pares: arreglo.filter(num => num % 2 === 0),
+          impares: arreglo.filter(num => num % 2 !== 0)
+        })
+
+      }
+
+
+
+    }
+    separador2([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+
+  </script>
+</body>
+
+</html>

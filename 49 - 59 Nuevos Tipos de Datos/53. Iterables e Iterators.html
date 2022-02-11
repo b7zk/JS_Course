@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p>Iterable: es el elemento cuyo contenido puede recorrerse</p>
+  <p>Iterador: es el mecanismo que corre los elementos</p>
+  <p>lorem</p>
+  <script>
+    //Mecanismo para recorrer un elemento iterable: destructuracion, for, foroff, array.from, spreadoperator, promesas
+
+    //Elemento: Ingresar a la interfase del iterador por medio del next
+
+    //iterable
+    const iterable = [1, 2, 3, 4, 5];
+    //set
+    const iterable2 = new Set([1, 2, 3, 3, 3, 4, 5, 6, 6])
+    //string
+    const iterable3 = "Hola mundo"
+    //map
+    const iterable4 = new Map([["nombre", "Osmar"], ["edad", 26]])
+
+    //iterador
+    const iterador = iterable4[Symbol.iterator]();
+
+    console.log(iterable);
+    console.log(iterador);
+    //console.log(iterador.next());
+    //value: valor actual | done: false (aun hay mas elementos)
+
+    //Basicamente es un apuntador que guarda la posicion donde quedo
+
+    let siguiente = iterador.next();
+    while (!siguiente.done) {
+      console.log(siguiente.value);
+      siguiente = iterador.next();
+    }
+
+
+  </script>
+</body>
+
+</html>

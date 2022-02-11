@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Solo pueden almacenar referencias debiles (llaves del tipo objeto)
+
+    //permite que el recolector de basura de JS al ser una referencia debil que en el momento que alguna de las referencias debiles, es decir que se hayan limpiado o vuelto null, cuando el recolecto de basura del navegador limpie. Hace una mejora al rendimiento de la aplicacion
+
+    //no se puede iterar
+    //no se puede utilizar clear, se elimina de 1 en 1
+    //no contienen algo que referencie al tamaño
+
+    //WEAKSET
+    //puede utilizar, add, has, delete,
+
+
+    //declaracion
+    const ws = new WeakSet();
+
+    //definir llaves
+    let valor1 = { "valor1": 1 };
+    let valor2 = { "valor2": 2 };
+    let valor3 = { "valor3": 3 };
+
+    //agregar llaves
+    ws.add(valor1);
+    ws.add(valor2);
+    console.log(ws);
+
+
+
+
+
+
+
+    //puede evaluar si tiene referencia
+    console.log(ws.has(valor1));
+    console.log(ws.has(valor3));
+
+    //eliminar referencia
+    ws.delete(valor2);
+    console.log(ws);
+
+    ws.add(valor2)
+    ws.add(valor3)
+    console.log(ws);
+
+    console.log("Interval");
+
+    /* setInterval(() => {
+      console.log(ws)
+
+    }, 1000);
+
+    setTimeout(() => {
+      valor1 = null;
+      valor2 = null;
+      valor3 = null;
+    }, 5000); */
+
+
+
+    //WEAK MAP
+    //puede utilizar, get set, has, delete
+
+    //declaracion weakmap
+    const wm = new WeakMap();
+    //declaracion llaves
+    let llave1 = {};
+    let llave2 = {};
+    let llave3 = {};
+
+    //agregar llaves
+    wm.set(llave1, 1)
+    wm.set(llave2, 2)
+    console.log(wm);
+
+    //comparar
+    console.log(wm.has(llave1));
+    console.log(wm.has(llave3));
+
+    //obtener valor
+    console.log(wm.get(llave1));
+
+    //eliminar valor
+    wm.delete(llave2);
+    console.log(wm);
+
+    wm.set(llave2, 2)
+    wm.set(llave3, 3)
+    setInterval(() => {
+      console.log(wm)
+
+    }, 100);
+
+    setTimeout(() => {
+      llave1 = null;
+      llave2 = null;
+      llave3 = null;
+    }, 500)
+
+  </script>
+</body>
+
+</html>

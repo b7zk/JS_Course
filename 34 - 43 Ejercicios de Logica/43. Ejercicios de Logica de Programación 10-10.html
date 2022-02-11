@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    class Pelicula {
+
+      constructor({ id, titulo, director, anio, pais, genero, calificacion }) {
+
+        this.id = id; //string
+        this.titulo = titulo; //string
+        this.director = director; //string
+        this.anio = anio; //numero
+        this.pais = pais; //string
+        this.genero = genero; //string
+        this.calificacion = calificacion; //numero
+
+        this.checkId(id);
+        this.checkTitulo(titulo);
+        this.checkDirector(director);
+        this.checkAnio(anio);
+        this.checkPais(pais);
+        this.checkGenero(genero);
+        this.checkCalif(calificacion);
+
+
+
+
+      }
+
+      static get listaGeneros() {
+        return ["Action", "Adult", "Adventure"]
+      }
+
+      static generosAceptados() {
+        return console.info(`Los generos aceptados son: ${Pelicula.listaGeneros.join(", ")}`)
+      }
+
+      checkString(texto, prop) {
+        if (!texto) return console.warn(`Debes ingresar un valor en ${prop}`)
+        if (typeof texto !== "string") return console.error("El dato ingresado no es una cadena de texto");
+        return true;
+      }
+      checkLong(valor, prop, longitud) {
+        if (valor.length > longitud) return console.error(`${prop}: "${valor} excede los ${longitud} caracteres permitidos`)
+        return true;
+
+      }
+      checkArray(arreglo, prop) {
+        if (!arreglo) return console.warn("Pais esta vacio");
+
+        if (!(arreglo instanceof Array)) return console.warn("Debes introducir la informacion en formato arreglo");
+        if (arreglo.length === 0) return console.error("Se encuentra vacio");
+
+        for (let c of arreglo) {
+          if (typeof c !== "string") {
+            console.log(`El valor ${c} no es una cadena de Texto`)
+          }
+        }
+
+        return true
+      }
+
+      checkId(id) {
+        if (this.checkString(id, "ID"))
+          if (id.length !== 9) return console.log(`El id debe constar de 9 caracteres`)
+        //expresion dentro de /^: sirve para, [a-z] grupo [inicio,fin] {2}: {numero de caracteres con dicha condicion} /
+        if (!(/^([a-z]){2}([0-9]){7}$/.test(id)))
+          return "El id debe constar de 2 letras seguido de 7 numeros  | Ejemplo: 'xx1234567'"
+
+      }
+
+
+      checkTitulo(texto) {
+        if (this.checkString(texto, "Titulo")) {
+
+          if (this.checkLong(texto, "Titulo", 100)) {
+            let expReg = /^[A-Za-zÑñÁÉÍÓÚáéíóúüÜ!?\s]+$/g.test(texto);
+
+            return (expReg) ? true : false
+          }
+        }
+
+      }
+      checkDirector(texto) {
+        if (this.checkString(texto, "Director")) {
+          if (this.checkLong(texto, "Director", 50)) {
+            let expReg = /^[A-Za-zÑñÁÉÍÓÚáéíóúüÜ!?\s]+$/g.test(texto);
+
+            return (expReg) ? true : false
+          }
+
+        }
+
+      }
+      checkAnio(anio) {
+
+        if (anio > new Date().getFullYear()) {
+          console.log(`Año incorrecto`)
+        }
+
+
+      }
+
+      checkPais(pais) {
+
+        this.checkArray(pais, "Pais");
+
+      }
+
+      checkGenero(genero) {
+        if (this.checkArray(genero, "Genero")) {
+          for (let g of genero) {
+
+            if (!Pelicula.listaGeneros.includes(g))
+              return console.error(`Generos incorrectos: "${genero.join(", ")}"`)
+
+          }
+        }
+
+
+
+
+      }
+
+
+
+      checkCalif(ca) {
+        if (typeof ca !== "number") return console.error("Debes ingresar un numero en la calificacion")
+        return (ca > 10 || ca < 0) ? console.error("El rango permitido es de 0 a 10") : this.calificacion = ca.toFixed(1);
+
+
+      }
+
+      showInfo() {
+        console.log(`ID: ${this.id}\nTitulo: ${this.titulo}\nAño: ${this.anio}\nGeneros: ${this.genero}\nCalificacion: ${this.calificacion}`)
+      }
+
+
+
+    }
+
+    const peliculas = [
+      {
+        id: "tt2322343",
+        titulo: "Lorem ipsum dolor sit amet conse",
+        director: "Pedrito Sola",
+        anio: 1997,
+        pais: ["Mexico", "Francia"],
+        genero: ["Action", "Adult"],
+        calificacion: 7.89
+      },
+      {
+        id: "tt2322343",
+        titulo: "wrh3553j",
+        director: "Pedrito Sola",
+        anio: 1997,
+        pais: ["Mexico", "Francia"],
+        genero: ["Action", "Adult"],
+        calificacion: 7.89
+      },
+      {
+        id: "tt2322343",
+        titulo: "rthetrwgw",
+        director: "Pedrito Sola",
+        anio: 1997,
+        pais: ["Mexico", "Francia"],
+        genero: ["Action", "Adult"],
+        calificacion: 7.89
+      }
+    ]
+
+    peliculas.forEach(e => new Pelicula(e).showInfo())
+
+  </script>
+</body>
+
+</html>

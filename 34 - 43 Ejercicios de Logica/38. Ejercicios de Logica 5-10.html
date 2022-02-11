@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Ejercicio 12
+    const primo = num => {
+      let cont = 0;
+      for (let i = num - 1; i > 1; i--) {
+        if (num % i === 0) {
+          cont++;
+        }
+      }
+      if (cont > 0) {
+        return "El numero es compuesto"
+      } else {
+        return "El numero es primo"
+      }
+    }
+
+    console.info(primo(12));
+    console.clear();
+
+    //Ejercicio 13
+    const parImpar = num => {
+      if (num % 2 === 0) {
+        console.log(`El numero ${num} es par`);
+      } else {
+        console.log(`El numero ${num} es impar`);
+      }
+    }
+    parImpar(40);
+
+    //Ejercicio 14
+
+    const conversor = (grado, nominacion) => {
+      if (nominacion === "C") {
+        return (grado * (9 / 5)) + 32;
+
+      } else if (nominacion === "F") {
+        return (grado - 32) * (5 / 9);
+      } else {
+        return "La denominación no existe"
+      }
+
+    }
+    console.info(conversor(85, "F"));
+
+
+  </script>
+</body>
+
+</html>

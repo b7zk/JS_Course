@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //recibe el objeto, genera una copia, permite operaciones (como validacion de propiedades, tipo de datos)
+
+    //Es un medio de vinculacion entre el objeto [persona] y la nueva instancia
+
+    //administrada por el handler
+    const persona = {
+      nombre: "",
+      apellido: "",
+      edad: 0
+    }
+    //Funcion manejadora
+
+    //Pueden hacerse las validaciones antes de la asignación
+    const manejador = {
+      set(obj, prop, valor) {
+
+        //indexOf BUSCA SI EXISTE COINCIDENCIAS
+        //-1 no encuentra
+        if (Object.keys(obj).indexOf(prop) === -1) {
+          return console.error(`La propiedad ${prop} no existe en el objeto persona `);
+
+        }
+        //esta validacion indica que si el nombre o apellido contienen un caracter no valido, no la guardará ni en el proxy ni en el objeto
+        if ((prop === "nombre" || prop === "apellido") && !(/^[A-Za-zÑñÁÉÍÓÚáéíóúüÜ!?\s]+$/g.test(valor))) {
+          return console.error(`La propiedad ${prop} sólo acepta letras y espacios en blanco`);
+
+        }
+        obj[prop] = valor;
+      }
+    }
+    //creacion del proxy
+    const jon = new Proxy(persona, manejador);
+    //asignacion de información al proxy
+    jon.nombre = "Jon";
+    jon.apellido = "Mircha";
+    jon.edad = 35;
+    jon.twitter = "@jonmircha"
+    console.log(jon);
+    console.log(persona);
+
+  </script>
+</body>
+
+</html>

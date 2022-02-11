@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Symbol crea una referencia unica
+    let id = Symbol("id")
+    let id2 = Symbol("id")
+    console.log(id === id2);
+    console.log(id, id2);
+    console.log(typeof id, typeof id2);
+    //const en Mayusculas UNA_CONSTANTE
+    const NOMBRE = Symbol("nombre");
+
+
+
+    //MANTIENE LOS VALORES INTERNOS
+    //ES DECIR, BASICAMENTE ES UNA PROPIEDAD PRIVADA
+    const persona = {
+      //[xxx]= identificador unico.
+      [NOMBRE]: "Osmar",
+      edad: 35
+    }
+
+
+
+    console.log(persona);
+
+    persona.NOMBRE = "Osmar Díaz"
+    console.log(persona.NOMBRE);
+    console.log(persona[NOMBRE]);
+
+
+    //CREACION CON PUNTO
+    const SALUDAR = Symbol("saludar");
+
+    persona[SALUDAR] = function () {
+      console.log("Hola, fui creada dentro de un simbolo");
+    }
+    console.log(persona);
+    persona[SALUDAR]();
+    console.log("***************Listado de elementos Publicos");
+    for (let p in persona) {
+      console.log(`Publico: ${p} : ${persona[p]}`);
+    }
+    console.log("***************Listado de elementos Privados");
+
+    console.log(Object.getOwnPropertySymbols(persona));
+
+  </script>
+</body>
+
+</html>

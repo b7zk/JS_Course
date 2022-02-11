@@ -1,0 +1,11 @@
+{
+  "cadena": "Osmar",
+  "numero": "26",
+  "booleano": "true",
+  "arreglo": ["Correr", "programar", "cocinar"],
+  "objeto": {
+    "twitter": "@akuromx",
+    "email": "akuromx@gmail.com"
+  },
+  "nulo": null
+}

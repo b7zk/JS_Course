@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //Callback: Primer mecanismo para manejar asincronia
+    //Callback: Es una funcion que se ejecutara despues de que otra la haga.
+
+    //Callback Held: Anidación que tenemos a la hora que se forma el codigo
+
+    //Funcion recursiva:
+    //Controla la asincronia
+    function cuadradoCallback(valor, callback) {
+      setTimeout(() => {
+        callback(valor, valor * valor);
+
+      }, 0 | Math.random() * 1000);
+
+    }
+    cuadradoCallback(0, (value, result) => {
+      console.log("Inicia Callback");
+      console.log(`Callback: ${value}, ${result}`);
+      //inception
+      cuadradoCallback(1, (value, result) => {
+
+        console.log(`Callback: ${value}, ${result}`);
+        //inception
+        cuadradoCallback(2, (value, result) => {
+
+          console.log(`Callback: ${value}, ${result}`);
+          //inception
+          cuadradoCallback(3, (value, result) => {
+
+            console.log(`Callback: ${value}, ${result}`);
+            //inception
+            cuadradoCallback(4, (value, result) => {
+
+              console.log(`Callback: ${value}, ${result}`);
+              //inception
+              cuadradoCallback(5, (value, result) => {
+
+                console.log(`Callback: ${value}, ${result}`);
+                console.log("Fin Calback");
+                //inception
+              })
+            })
+          })
+        })
+      })
+    })
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //Ejercicio 1
+    const a = [1, 2, 3, 4];
+    const b = 4;
+    const c = "Hola mundo"
+
+    function contar(texto) {
+      texto;
+      if (typeof texto !== "string") {
+        console.log("No es una cadena de texto")
+      } else {
+        let car = texto.length;
+        console.log(car)
+      }
+    }
+    contar(c);
+
+
+    //funcion expresada:
+    const contar1 = (texto) => (typeof texto !== "string") ? console.warn("Funcion expresada | No es una cadena de texto") : console.log(`Funcion expresada  | Tu cadena tiene ${texto.length} caracteres`);
+
+    contar1(c);
+
+
+    //Ejercicio 2
+    function cortar(texto, x) {
+      texto, x;
+
+      if (typeof texto !== "string") {
+        console.log("No es una cadena de texto")
+      } else {
+        let cad = texto.slice(0, x);
+        console.log(cad);
+      }
+    }
+    cortar(c, 4);
+
+    //arrow function expresada
+    const cortar1 = (texto, x) => (typeof texto !== "string") ? console.warn("Funcion expresada | No es una cadena de texto") : console.log(`Tu texto cortado: ${texto.slice(0, x)}`)
+    cortar1(c, 4)
+    console.clear();
+
+    //Ejercicio 3
+    const d = "Hola que tal"
+    function trimmear(texto, separador) {
+      texto;
+
+      if (typeof texto !== "string") {
+        console.log("No es una cadena de texto")
+      } else {
+        let arrayCadenas = texto.split(separador);
+
+        for (let i = 0; i < arrayCadenas.length; i++) {
+          console.log(`Posicion ${i}: ${arrayCadenas[i]}`);
+        }
+      }
+    }
+    trimmear(d, " ");
+
+    //arrow function expresada
+
+    /*
+        const trimmear2 = (texto, separador) => {
+          (typeof texto !== "string")
+            ? console.warn("No es una cadena de texto")
+            : console.log(" Palabra dividida");
+          let arrayCadenas = texto.split(separador);
+          for (let i = 0; i < arrayCadenas.length; i++) {
+            console.log(`Posicion ${i}: ${arrayCadenas[i]}`);
+          }
+        }
+        trimmear2(d, " ")*/
+    const trimmear2 = (texto, separador) => {
+      (typeof texto !== "string")
+        ? console.warn("No es una cadena de texto")
+        : console.log(" Palabra dividida");
+      let arrayCadenas = texto.split(separador);
+      arrayCadenas.forEach(element => {
+        console.log(element)
+      });
+    }
+    trimmear2(d, " ")
+    console.clear();
+
+
+
+
+    //Ejercicio 4
+    function repeat(texto, n) {
+      texto;
+      if (typeof texto !== "string") {
+        console.log("No es una cadena de texto")
+      } else {
+        if (Math.sign(n) !== 1) {
+          console.warn("El numero debe ser positivo");
+        } else {
+          for (let i = 0; i < n; i++) {
+            console.log(`${i + 1} = ${texto}`)
+          }
+        }
+
+      }
+    }
+    repeat(c, 5);
+
+    const repeat2 = (texto, n) => {
+      if (typeof texto !== "string") {
+        console.log("No es una cadena de texto")
+      } else {
+        if (Math.sign(n) !== 1) {
+          console.warn("El numero debe ser positivo");
+        } else {
+          for (let i = 0; i < n; i++) {
+            console.log(`${i + 1} = ${texto}`)
+          }
+        }
+
+      }
+    }
+    repeat2(c, 5);
+
+
+
+  </script>
+</body>
+
+</html>

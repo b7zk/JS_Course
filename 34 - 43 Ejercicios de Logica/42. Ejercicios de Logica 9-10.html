@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    //ejercicio 23
+
+    const separador = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+      for (let num of arreglo) {
+        if (typeof num !== "number") {
+          let max = Math.max(arr);
+          return console.log("Necesitas ingresar sólo numeros")
+        }
+
+        return console.info({
+          asc: arreglo.map(n => n).sort(),
+          desc: arreglo.map(n => n).sort().reverse()
+        })
+
+
+      }
+    }
+    separador([7, 5, 7, 8, 6]);
+
+    //ejercicio 24
+    const eliminador = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+
+
+      /* eturn console.info({
+        original: arreglo,
+        sinDupl: arreglo.filter((value, index, self) => self.indexOf(value) === index)
+
+      }) */
+
+      //Tipo de dato Set
+      return console.info({
+        original: arreglo,
+        sinDupl: [... new Set(arreglo)]
+
+      })
+
+
+
+    }
+    eliminador(["x", 10, "x", 2, "10", 10, true, true]);
+
+    //ejercicio 25
+
+    const promedia = (arreglo = []) => {
+
+      if (!arreglo) return console.warn("Ingresa un arreglo");
+
+      if (!Array.isArray(arreglo)) return console.warn("Debes introducir un arreglo");
+
+      for (let num of arreglo) {
+        if (typeof num !== "number") {
+
+          return console.log("Necesitas ingresar sólo numeros")
+        }
+
+        return console.info(promedio = (arreglo.reduce((previous, current) => current += previous)) / arreglo.length);
+
+
+      }
+    }
+
+    promedia([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+  </script>
+</body>
+
+</html>

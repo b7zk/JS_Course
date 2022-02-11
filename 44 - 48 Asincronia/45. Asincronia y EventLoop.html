@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //La asincronia permite realizar largas solicitues de red (como APIs) sin bloquear el hilo principal del codigo 
+
+    //Trabaja sobre un modelo asincrono no bloqueante y tiene un loop de eventos implementados de single threa para operaciones de I/O
+    /*Procesamiento Single thread & Multi thread
+    //JavaScript trabaja sobre un solo hilo de ejecucion
+    //Event Loop
+    Operaciones de CPU y Operaciones de I/O
+              CPU: son aquellas que pasan mayor tiempo consumiendo los procesos del CPU
+              I/O: pasan la mayor parte del tiempo esperando la petición del usuario. (o API)
+    Operaciones Concurrentes y Paralelas
+            Concurrente: Dos o más tareas se ejecutan al mismo tiempo y avanzan simultaneamente
+            Paralelismo: Cuando dos tareas se ejecutan al unisono (al mismo tiempo)
+    
+    Operaciones Bloqueantes y No-Bloqueanes: Se refiere a la fase de espera cada que se ejecuta una op del codigo
+    Bloqueantes: No devuelve el control a la aplicacion hasta que acabe la tarea
+    No Bloqueantes:  Se ejecutan y devuelven el control al hilo principan aunque no hayan acabado, cuando termine, mandara una notificacion al hilo principal.
+
+    Operaciones Sincronas y Asincronas: Cuando tendra lugar la respuesta, 
+            Sincrono: Sucede en el presente (Espera el Resultado) 
+            La respuesta sucede en un futuro (No sabe cuando recibira la respuesta) - Devuelve el control al hilo principal [Suele ser No-Bloqueante]
+
+*/
+
+    /* Tendremos dos tipos de codigo en JS:
+    Codigo Sincrono Bloqueante
+    Codigo Asincrono No-Bloqueante*/
+
+    //Codigo Sincrono Bloqueante: Cada Operacion se hace una vez, bloquea el flujo del hilo principal, y cuando termine, devuelve el control al hilo principal
+    (() => {
+
+      console.log("Codigo Sincrono")
+      console.log("Inicio")
+
+      function dos() {
+        console.log("dos")
+      }
+
+      function uno() {
+        console.log("uno");
+        dos();
+        console.log("Tres");
+      }
+
+      uno(); //Libera el hilo una vez terminado, y se ejecuta la siguiente
+      console.log("Fin");
+
+      console.log("************************");
+
+
+
+
+    })();
+
+
+    //Codigo Asincrono No-Bloqueante: 
+
+    //SE MANEJA EN LIFO
+    (() => {
+
+      console.log("Codigo Asincrono")
+      console.log("Inicio")
+
+      function dos() {
+        setTimeout(function () {
+          console.log("dos")
+        }, 1000);
+      }
+
+      //Las no-bloqueantes son los SOUT
+      //Las bloqueantes son los logs
+      function uno() {
+        setTimeout(function () {
+          console.log("uno");
+        }, 0);//Lo manda al callstack y se ejecuta después de las siguientes lineas de codigo
+        dos(); //lo manda al callstack
+        console.log("Tres");
+      }
+
+
+      uno(); //
+      console.log("Fin");
+
+
+    })();
+
+    //JavaScript usa un modelo asincrono y no bloqueante, con un loop de eventos implementado en un single thread para operaciones I/O
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
